@@ -467,18 +467,6 @@ section {
   z-index: 0;
 }
 
-#skills::before {
-  content: '';
-  position: absolute;
-  top: 10%;
-  right: -5%;
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.06) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
 #about::before {
   content: '';
   position: absolute;
@@ -1422,14 +1410,14 @@ section {
 #minigame-canvas-wrapper {
   position: relative;
   width: 100%;
-  max-width: 720px;
-  height: 380px;
+  max-width: 580px;
+  height: 480px;
   margin: 1rem auto;
-  border: 2px solid var(--primary-cyan);
-  border-radius: 8px;
+  border: 3px solid var(--primary-cyan);
+  border-radius: 0px;
   background: #040812;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+  box-shadow: 6px 6px 0px #000, 0 0 20px rgba(0, 240, 255, 0.2);
 }
 
 #minigame-canvas {
@@ -1464,11 +1452,158 @@ section {
   border-radius: 6px;
   cursor: pointer;
   user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .touch-btn:active {
   background: var(--primary-cyan);
   color: #000;
+}
+
+/* ============================================================
+   SKILLS SECTION: CYBERPUNK SUBSYSTEM ZONE & SCROLL REVEAL
+   ============================================================ */
+.skills-highlight-zone {
+  position: relative;
+  background: linear-gradient(180deg, rgba(6, 18, 42, 0.72) 0%, rgba(9, 27, 66, 0.88) 50%, rgba(6, 18, 42, 0.72) 100%);
+  background-image: 
+    radial-gradient(rgba(0, 240, 255, 0.16) 1.2px, transparent 1.2px),
+    linear-gradient(180deg, rgba(6, 18, 42, 0.72) 0%, rgba(9, 27, 66, 0.88) 50%, rgba(6, 18, 42, 0.72) 100%);
+  background-size: 28px 28px, 100% 100%;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: inset 0 24px 48px rgba(0, 0, 0, 0.6), inset 0 -24px 48px rgba(0, 0, 0, 0.6);
+  border-top: 1px solid rgba(0, 240, 255, 0.25);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.25);
+  overflow: hidden;
+  padding: 7rem 0;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Glowing Neon Laser Beam Dividers (Top & Bottom) */
+.skills-highlight-zone::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 240, 255, 0.95) 50%, transparent 100%);
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.8), 0 0 32px rgba(0, 240, 255, 0.4);
+  z-index: 2;
+}
+
+.skills-highlight-zone::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 240, 255, 0.95) 50%, transparent 100%);
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.8), 0 0 32px rgba(0, 240, 255, 0.4);
+  z-index: 2;
+}
+
+/* Ambient Center Radial Aura Glow */
+.skills-ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.08) 0%, rgba(13, 37, 85, 0.03) 60%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* High-Tech Sweep Scanline Laser (Animated on Scroll Entry) */
+.skills-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(180deg, transparent, rgba(0, 240, 255, 0.08) 60%, rgba(0, 240, 255, 0.35) 98%, #00f0ff 100%);
+  box-shadow: 0 4px 18px rgba(0, 240, 255, 0.4);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 3;
+  transform: translateY(-100%);
+}
+
+.skills-scanline.scanning {
+  animation: skillsScanPass 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes skillsScanPass {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(1200px);
+  }
+}
+
+/* Skills Header Block & Telemetry Tag */
+.skills-header-block {
+  text-align: center;
+  margin-bottom: 3.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.skills-hud-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 16px;
+  margin-bottom: 0.9rem;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--primary-cyan);
+  letter-spacing: 1px;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+}
+
+.hud-status-dot.pulse-cyan {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary-cyan);
+  box-shadow: 0 0 8px var(--primary-cyan);
+  animation: hudPulseCyan 1.8s infinite ease-in-out;
+}
+
+@keyframes hudPulseCyan {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 8px var(--primary-cyan);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.75);
+    box-shadow: 0 0 2px var(--primary-cyan);
+  }
+}
+
+.skills-container {
+  position: relative;
+  z-index: 1;
 }
 
 /* Skills Section */
@@ -1482,6 +1617,14 @@ section {
   padding: 1.8rem;
   display: flex;
   flex-direction: column;
+  background: rgba(8, 16, 34, 0.88);
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 15px rgba(0, 240, 255, 0.04);
+}
+
+.skill-card:hover {
+  border-color: var(--primary-cyan);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 24px rgba(0, 240, 255, 0.2);
 }
 
 .skill-category-badge {
@@ -1785,18 +1928,13 @@ section {
 .modal-preview-wrapper {
   position: relative;
   width: 100%;
-  height: 380px;
+  aspect-ratio: 16 / 9;
   border-radius: 6px;
   border: 1px solid var(--border-color);
   margin-bottom: 1.5rem;
   overflow: hidden;
-  background: #070a12;
-}
-
-@media (max-width: 768px) {
-  .modal-preview-wrapper {
-    height: 220px;
-  }
+  background: #000;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
 .modal-image-preview {
@@ -1820,15 +1958,19 @@ section {
 }
 
 .modal-video-container.active {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-video-player,
 .modal-video-iframe {
   width: 100%;
   height: 100%;
-  border: none;
-  object-fit: contain;
+  border: 0;
+  outline: none;
+  display: block;
+  background: #000;
 }
 
 .video-play-overlay-btn {
@@ -2647,6 +2789,20 @@ footer {
   }
 
   /* Skills */
+  .skills-highlight-zone {
+    padding: 4.5rem 0;
+  }
+
+  .skills-header-block {
+    margin-bottom: 2.2rem;
+  }
+
+  .skills-hud-tag {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    letter-spacing: 0.5px;
+  }
+
   .skills-grid {
     grid-template-columns: 1fr;
     gap: 1.2rem;
@@ -2752,7 +2908,7 @@ footer {
   }
 
   #minigame-canvas-wrapper {
-    height: 250px;
+    height: 380px;
   }
 
   .minigame-stats-bar {
@@ -2990,9 +3146,5 @@ footer {
 
   .modal-container {
     padding: 1rem 0.85rem;
-  }
-
-  .modal-preview-wrapper {
-    height: 175px;
   }
 }

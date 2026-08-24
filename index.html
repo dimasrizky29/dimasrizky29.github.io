@@ -143,7 +143,7 @@
 
         <div class="hero-profile-spotlight">
           <div class="hero-avatar-wrapper">
-            <img src="assets/Profile.png" alt="Dimas Rizky AF" class="hero-avatar-img">
+            <img src="assets/Profile.png" alt="Dimas Rizky AF" class="hero-avatar-img" fetchpriority="high" decoding="async">
           </div>
           <div class="hero-profile-meta">
             <div class="hero-profile-name">LEAD GAME DEVELOPER</div>
@@ -184,7 +184,7 @@
         <!-- Left Column: Photo HUD Frame -->
         <div class="photo-hud-frame reveal-left">
           <div class="photo-wrapper">
-            <img src="assets/background.jpg" alt="Dimas Rizky AF - Unity Lead Developer" loading="lazy">
+            <img src="assets/background.jpg" alt="Dimas Rizky AF - Unity Lead Developer" loading="lazy" decoding="async">
             <div class="photo-overlay-hud">
               <span>HP: 100/100</span>
               <span>MANA: 100/100</span>
@@ -495,10 +495,21 @@
   </section>
 
   <!-- Skills Section: 3 High-Impact Architectural Domains -->
-  <section id="skills">
-    <div class="container">
-      <h2 class="section-title reveal-up">TECHNICAL ARCHITECTURE &amp; SKILL TREE</h2>
-      <p class="section-subtitle reveal-up">SENIOR &amp; LEAD LEVEL COMPETENCIES CATEGORIZED BY ENGINEERING DOMAIN</p>
+  <section id="skills" class="skills-highlight-zone">
+    <div class="skills-ambient-glow" aria-hidden="true"></div>
+    <div class="skills-scanline" aria-hidden="true"></div>
+    
+    <div class="container skills-container">
+      
+      <!-- Section Header with HUD Telemetry Status -->
+      <div class="skills-header-block reveal-up">
+        <div class="skills-hud-tag">
+          <span class="hud-status-dot pulse-cyan"></span>
+          <span class="mono">CORE ARCHITECTURE MATRIX // 3 PRODUCTION TRACKS ONLINE</span>
+        </div>
+        <h2 class="section-title">TECHNICAL ARCHITECTURE &amp; SKILL TREE</h2>
+        <p class="section-subtitle">ENGINEERING COMPETENCIES &amp; SKILLS CATEGORIZED BY DOMAIN</p>
+      </div>
       
       <div class="skills-grid">
         
@@ -732,7 +743,7 @@
         <!-- Certificate 2: Most Favorite Game Award -->
         <div class="hud-box cert-card reveal-right" tabindex="0" role="button" title="Click to celebrate!" aria-label="Most Favorite Game Award - Click to celebrate">
           <div class="cert-img-wrapper">
-            <img src="assets/dimas_rizky_alimu_award_certificate.jpg" alt="Indigo Most Favorite Game Award - Dimas Rizky AF" loading="lazy">
+            <img src="assets/dimas_rizky_alimu_award_certificate.jpg" alt="Indigo Most Favorite Game Award - Dimas Rizky AF" loading="lazy" decoding="async">
           </div>
           <div style="padding: 1.5rem;">
             <div style="display:flex;justify-content:space-between;align-items:center;">
@@ -748,31 +759,33 @@
     </div>
   </section>
 
-  <!-- Arcade Mini Game Section: Galaxy Defender (Easy Mode) -->
+  <!-- Arcade Mini Game Section: Tetris -->
   <section id="minigame-section">
     <div class="container">
-      <h2 class="section-title">ARCADE CENTER: GALAXY DEFENDER</h2>
-      <p class="section-subtitle">RELAXED MODE: SHOOT DOWN INVADERS & BEAT THE HIGH SCORE (LIVES REDUCE ONLY ON DIRECT ENEMY HIT!)</p>
+      <h2 class="section-title">ARCADE CENTER: TETRIS</h2>
+      <p class="section-subtitle">CLASSIC RETRO TETRIS: ROTATE, STACK &amp; CLEAR LINES TO BEAT THE HIGH SCORE!</p>
       
       <div class="hud-box minigame-container">
         <div class="minigame-stats-bar">
           <div>SCORE: <span id="score-val" class="text-cyan">0</span></div>
           <div>HIGH SCORE: <span id="high-score-val" class="text-green">0</span></div>
-          <div>LIVES: <span id="lives-val" style="display:inline-flex;gap:4px;vertical-align:middle;"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--accent-pink);"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--accent-pink);"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--accent-pink);"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span></div>
+          <div>LINES: <span id="lines-val" class="text-yellow">0</span></div>
+          <div>LEVEL: <span id="level-val" class="text-pink">1</span></div>
         </div>
         
         <div id="minigame-canvas-wrapper">
-          <canvas id="minigame-canvas" width="700" height="360"></canvas>
+          <canvas id="minigame-canvas" width="560" height="480"></canvas>
         </div>
         
         <div style="display: flex; gap: 15px; justify-content: center; align-items: center; flex-wrap: wrap;">
-          <button id="start-minigame-btn" class="btn-hud btn-hud-pink">START GALAXY SHOOTER</button>
+          <button id="start-minigame-btn" class="btn-hud btn-hud-pink">START TETRIS</button>
         </div>
 
         <div class="touch-controls">
-          <button id="btn-touch-left" class="touch-btn">&lt; LEFT</button>
-          <button id="btn-touch-fire" class="touch-btn" style="background: rgba(236, 72, 153, 0.2); border-color: var(--accent-pink); color: var(--accent-pink);">FIRE LASER</button>
-          <button id="btn-touch-right" class="touch-btn">RIGHT &gt;</button>
+          <button id="btn-touch-left" class="touch-btn">◄ LEFT</button>
+          <button id="btn-touch-rotate" class="touch-btn" style="background: rgba(0, 240, 255, 0.2); border-color: var(--primary-cyan); color: var(--primary-cyan);">↻ ROTATE</button>
+          <button id="btn-touch-right" class="touch-btn">RIGHT ►</button>
+          <button id="btn-touch-drop" class="touch-btn" style="background: rgba(236, 72, 153, 0.2); border-color: var(--accent-pink); color: var(--accent-pink);">▼ DROP</button>
         </div>
       </div>
     </div>
@@ -950,7 +963,7 @@
       </div>
       <div class="audio-widget-text">
         <span class="audio-widget-label">SOUNDTRACK</span>
-        <span class="audio-widget-title">8-BIT CYBER RETRO</span>
+        <span class="audio-widget-title">CYBERPUNK 2077 CHIPTUNE</span>
       </div>
     </div>
     <div class="audio-widget-controls">
