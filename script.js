@@ -872,6 +872,38 @@ class CyberpunkTetrisGame {
 
 // 4. Projects Data Store
 const projectsData = {
+  "3d-puzzle-explorer": {
+    title: "3D Puzzle Explorer",
+    category: "Simulation",
+    role: "Unity Game Programmer & Architect",
+    year: "2026",
+    platform: "PC (Windows x86_64)",
+    coverImage: "assets/projects/3d_puzzle_explorer_cover.webp",
+    screenshots: [
+      "assets/projects/3d_puzzle_explorer_cover.webp",
+      "assets/projects/3d_puzzle_explorer_gameplay1.webp",
+      "assets/projects/3d_puzzle_explorer_gameplay2.webp"
+    ],
+    bgGradient: "linear-gradient(135deg, #0d9488, #115e59)",
+    videos: [
+      { label: "GAMEPLAY & PUZZLE DEMO", type: "mp4", src: "https://github.com/user-attachments/assets/20d05e70-9b7d-4a69-84cc-2e06d7615dfe" }
+    ],
+    toolsUsed: ["Unity 6 LTS (6000.3.7f1)", "Universal Render Pipeline (URP)", "Cinemachine 3", "UniTask", "New Input System", "Asmdefs"],
+    tech: ["Unity 6 LTS", "C#", "SOLID Architecture", "UniTask Async", "Cinemachine", "Assembly Definitions", "Model-View Decoupling"],
+    links: [
+      { text: "VIEW ON GITHUB", url: "https://github.com/dimasrizky29/3D-Puzzle-Explorer", class: "btn-hud btn-hud-green" },
+      { text: "DOWNLOAD WINDOWS BUILD", url: "https://drive.google.com/file/d/1dWbiEPVTmdoV4GSdH1QEVToABZ357Em0/view?usp=sharing", class: "btn-hud btn-hud-secondary" }
+    ],
+    description: "A third-person 3D exploration prototype in Unity 6 LTS: players explore environments, interact with 3D objects, and transition to UI-based 2D mini-puzzles (Memory Match & Sliding Puzzle) with seamless input locking and state restoration.",
+    highlights: [
+      "Architected strict Assembly Definitions (Game.Core, Game.UI, Game.Puzzle, Game.Interaction, Game.Player, Game.Bootstrap) ensuring inward dependency flow and zero circular references.",
+      "Applied SOLID principles with pure C# decoupled models (MemoryMatchModel & SlidingPuzzleModel) for 100% testable domain rules without MonoBehaviour dependencies.",
+      "Implemented UniTask 2.5.10 async lifecycle pipelines with linked CancellationTokenSources and zero Coroutines, preventing memory leaks on object destruction.",
+      "Optimized hot paths with Physics.OverlapSphereNonAlloc on cached layer masks (0.1s interval), UI view pooling, and zero runtime garbage collection."
+    ],
+    collaboration: "Structured clean abstractions and modular IPuzzle interfaces so designers can introduce new puzzle archetypes or interactable triggers without modifying core puzzle services.",
+    takeaway: "Demonstrated enterprise-level Unity 6 engineering practices: modular asmdefs, DI via composition root (GameBootstrapper), zero GC hot paths, and robust async state management."
+  },
   "destiny-of-heroes": {
     title: "Destiny of Heroes",
     category: "Action / Shooter",
@@ -1201,6 +1233,7 @@ function initPreloader() {
     'assets/Game Developer certificate.png',
     'assets/dimas_rizky_alimu_award_certificate.jpg',
     'assets/projects/destiny_of_heroes.webp',
+    'assets/projects/3d_puzzle_explorer_cover.webp',
     'assets/projects/mon_tycoon.webp',
     'assets/projects/my_farm_sim.webp',
     'assets/projects/hyper_legend.webp',

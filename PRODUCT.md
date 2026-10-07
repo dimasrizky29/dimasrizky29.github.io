@@ -43,7 +43,7 @@ Evaluated on desktop browsers (Windows / macOS) and mobile devices. Visitors sca
 - **Profile Assets**: `assets/Profile.png` (hero player card avatar), `assets/background.jpg` (About section main photo), `assets/Dimas_Rizky_AF_CV.pdf` (official CV).
 - **Certificates & Awards**: `assets/Game Developer certificate.png` (Unity Certified Associate), `assets/dimas_rizky_alimu_award_certificate.jpg` (Indigo Most Favorite Game Award).
 - **Audio Soundtrack**: `assets/audio/cyberpunk_bgm.mp3` (Cyberpunk 2077 OST Chiptune Theme).
-- **Projects**: Published games across PC Steam, Mobile, and WebGL (*Zuma Infinity*, *Shiba Hunter*, *Pesulap Merah Adventure*, *Destiny of Heroes*, *My Farm Simulation*, *Hyper Legend*, *Multiplayer Billiards*, *Mon Tycoon*).
+- **Projects**: Published games across PC Steam, Mobile, and WebGL (*3D Puzzle Explorer*, *Zuma Infinity*, *Shiba Hunter*, *Pesulap Merah Adventure*, *Destiny of Heroes*, *My Farm Simulation*, *Hyper Legend*, *Multiplayer Billiards*, *Mon Tycoon*).
 
 ## Product Principles
 

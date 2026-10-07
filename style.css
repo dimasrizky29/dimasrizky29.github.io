@@ -5,16 +5,25 @@
    ========================================================================== */
 
 :root {
-  /* ── DESIGN TOKENS (Planning V5.0) ── */
-  --bg-dark:    #090d16;          /* Main Background */
-  --bg-surface: #0e1422;          /* Card / HUD Box Surface */
+  /* ── DESIGN.md CORE TOKENS ── */
+  --bg-deep:      #060e22;          /* Deep matrix-dark background canvas */
+  --text-primary: #e2e8f0;          /* Primary off-white text */
+  --cyan:         #00f0ff;          /* Primary HUD highlight / active / key CTA */
+  --pink:         #ec4899;          /* Secondary accent */
+  --green:        #10b981;          /* Status completed / shipped / active */
+  --yellow:       #f59e0b;          /* Warning / stats / achievements */
+  --grid-line:    #0d1f3c;          /* Matrix grid lines */
 
-  /* Semantic color names (Planning V5.0) */
-  --cyan-primary:  #00f0ff;       /* Main HUD Borders, Glow, Primary UI */
-  --pink-accent:   #ec4899;       /* Headings, Tags, Secondary Highlights */
-  --green-status:  #10b981;       /* EXP Bar, Active Status, Online Indicator */
-  --yellow-stat:   #f59e0b;       /* Counters, Stats, Achievements */
-  --purple-glow:   #8b5cf6;       /* Ambient Background Radial Glows */
+  /* ── DESIGN TOKENS (Planning V5.0 & Semantic Aliases) ── */
+  --bg-dark:    var(--bg-deep);     /* Main Background */
+  --bg-surface: #0a1426;          /* Card / HUD Box Surface */
+
+  /* Semantic color names */
+  --cyan-primary:  var(--cyan);     /* Main HUD Borders, Glow, Primary UI */
+  --pink-accent:   var(--pink);     /* Headings, Tags, Secondary Highlights */
+  --green-status:  var(--green);    /* EXP Bar, Active Status, Online Indicator */
+  --yellow-stat:   var(--yellow);   /* Counters, Stats, Achievements */
+  --purple-glow:   #8b5cf6;         /* Ambient Background Radial Glows */
 
   /* Glow / alpha variants */
   --cyan-primary-glow:  rgba(0, 240, 255, 0.40);
@@ -24,23 +33,23 @@
   --purple-glow-alpha:  rgba(139, 92, 246, 0.40);
 
   /* ── BACKWARD COMPAT ALIASES (used in existing CSS/HTML) ── */
-  --primary-cyan:       var(--cyan-primary);
+  --primary-cyan:       var(--cyan);
   --primary-cyan-glow:  var(--cyan-primary-glow);
-  --accent-green:       var(--green-status);
+  --accent-green:       var(--green);
   --accent-green-glow:  var(--green-status-glow);
-  --accent-pink:        var(--pink-accent);
+  --accent-pink:        var(--pink);
   --accent-pink-glow:   var(--pink-accent-glow);
-  --accent-yellow:      var(--yellow-stat);
+  --accent-yellow:      var(--yellow);
   --accent-yellow-glow: var(--yellow-stat-glow);
   --accent-purple:      var(--purple-glow);
   --accent-purple-glow: var(--purple-glow-alpha);
-  --bg-card:            rgba(14, 20, 34, 0.84);
-  --bg-card-hover:      rgba(20, 30, 52, 0.94);
-  --bg-hud:             rgba(14, 20, 36, 0.96);
+  --bg-card:            rgba(10, 20, 38, 0.88);
+  --bg-card-hover:      rgba(14, 28, 56, 0.94);
+  --bg-hud:             rgba(10, 20, 38, 0.96);
   --secondary-blue:     #3b82f6;
 
   /* ── TEXT ── */
-  --text-main:  #e2e8f0;          /* Paragraph Body Text (softer than pure white) */
+  --text-main:  var(--text-primary); /* Paragraph Body Text (softer than pure white) */
   --text-muted: #cbd5e1;
   --text-dim:   #94a3b8;          /* WCAG AA 4.5:1 contrast compliant */
 
@@ -134,7 +143,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #090d16;
+  background: var(--bg-deep);
   z-index: 10005;
   display: flex;
   align-items: center;
@@ -217,8 +226,8 @@ body {
 .exp-progress-bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, var(--accent-pink), var(--accent-purple), var(--primary-cyan), var(--accent-green));
-  box-shadow: 0 0 12px var(--primary-cyan);
+  background: linear-gradient(90deg, var(--cyan), var(--green));
+  box-shadow: 0 0 12px var(--primary-cyan-glow);
   transition: width 0.1s linear;
 }
 
@@ -272,7 +281,7 @@ body {
 }
 
 .pixel-tile {
-  background: #090d16;
+  background: var(--bg-deep);
   border: 1px solid rgba(0, 240, 255, 0.04);
   transform-origin: center center;
   will-change: transform, opacity;
@@ -1028,7 +1037,7 @@ section {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  background: #090d16;
+  background: var(--bg-deep);
 }
 
 .hero-profile-meta {
@@ -1149,7 +1158,7 @@ section {
   left: 0;
   width: 100%;
   padding: 14px;
-  background: linear-gradient(to top, rgba(9, 13, 22, 0.96), transparent);
+  background: linear-gradient(to top, rgba(6, 14, 34, 0.96), transparent);
   font-family: var(--font-code);
   font-size: 0.85rem;
   display: flex;
@@ -1329,7 +1338,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(9, 13, 22, 0.95) 0%, rgba(9, 13, 22, 0.4) 50%, transparent 80%);
+  background: linear-gradient(to top, rgba(6, 14, 34, 0.95) 0%, rgba(6, 14, 34, 0.4) 50%, transparent 80%);
   display: flex;
   align-items: flex-end;
   padding: 0.9rem 1rem;
