@@ -904,6 +904,40 @@ const projectsData = {
     collaboration: "Structured clean abstractions and modular IPuzzle interfaces so designers can introduce new puzzle archetypes or interactable triggers without modifying core puzzle services.",
     takeaway: "Demonstrated enterprise-level Unity 6 engineering practices: modular asmdefs, DI via composition root (GameBootstrapper), zero GC hot paths, and robust async state management."
   },
+  "2d-explorer-prototype": {
+    title: "2D Explorer Prototype",
+    category: "Action / Shooter",
+    role: "Unity Game Programmer & Architect",
+    year: "2026",
+    platform: "PC & Mobile (Windows / Android)",
+    coverImage: "assets/projects/2d_explorer_cover.webp",
+    screenshots: [
+      "assets/projects/2d_explorer_cover.webp",
+      "assets/projects/2d_explorer_gameplay1.webp",
+      "assets/projects/2d_explorer_gameplay2.webp"
+    ],
+    bgGradient: "linear-gradient(135deg, #15803d, #14532d)",
+    videos: [
+      { label: "COMBAT JUICE & BOSS DEMO", type: "mp4", src: "https://github.com/user-attachments/assets/cf6d800f-f24d-4099-9361-eb053716a6ba" },
+      { label: "ENEMY AI & STAGGER DEMO", type: "mp4", src: "https://github.com/user-attachments/assets/cd7cc689-1c9b-45d9-8649-92f661f2dfca" }
+    ],
+    toolsUsed: ["Unity 6 LTS (6000.3.7f1)", "Universal Render Pipeline (URP 2D)", "UniTask", "VContainer (DI)", "New Input System", "Unity Test Framework (NUnit)"],
+    tech: ["Unity 6 LTS", "C#", "VContainer (DI)", "UniTask Async", "URP 2D", "Juice & Feel Engineering", "Enemy AI Coordination", "NUnit Tests"],
+    links: [
+      { text: "VIEW ON GITHUB", url: "https://github.com/dimasrizky29/2D-Explorer-Prototype", class: "btn-hud btn-hud-green" }
+    ],
+    description: "A top-down 2D pixel-art action-exploration prototype built in Unity 6 LTS. Features heavy, responsive combat (5-hit combo, input buffer, hit stop, directional camera shake, finisher zoom, slow motion), turn-based enemy coordination, and a two-phase charging boss built on a clean, testable architecture.",
+    highlights: [
+      "Engineered a responsive 5-hit combo combat pipeline featuring hit-confirm combo advances, input buffering, auto-lock target snapping, and dash action locking.",
+      "Architected centralized TimeControl with TimeScaleStack: safely blends hit stop and slow motion effects without overwriting, immune to mid-effect entity destruction.",
+      "Implemented directional camera shake kicking along impact angles with decay damping, alongside finisher-only camera zoom fully compatible with PixelPerfectCamera.",
+      "Built turn-based AttackCoordinator AI allocating angular attack slots with circulating waiting rings, stagger hit counters, and a 2-phase charging boss.",
+      "Decoupled pure C# models (ComboTracker, StaggerCounter, TimeScaleStack, ZoomCurve, ShakeCurve) covered by NUnit EditMode unit tests with zero MonoBehaviour dependencies.",
+      "Zero runtime garbage collection on hot paths: pre-allocated NonAlloc physics query buffers and UniTask async lifecycle with disposal-safe CancellationTokens."
+    ],
+    collaboration: "Structured fully data-driven ScriptableObjects (ComboData, AttackData, HitFeel, EnemyProfile) so combat designers and animators can plug in new combos and tune game feel without code changes.",
+    takeaway: "Exemplifies modern Unity 6 game-feel engineering: bridging visceral combat juice (hit stop, camera recoil, particle sparks) with enterprise-grade software architecture (VContainer DI, pure C# testable logic, UniTask async)."
+  },
   "destiny-of-heroes": {
     title: "Destiny of Heroes",
     category: "Action / Shooter",
